@@ -35,43 +35,28 @@ export function registerEventHandlers() {
 
     listen('click', 'input[name="todoInputFilter"]', event => {
         let currentFilterValue = event.target.value;
-        let currentTodos = [];
+        // let currentTodos = [];
+        // currentState.map( index => {
+        //     if(index.done && currentFilterValue === 'done'){
+        //         currentTodos.push(index);
+        //     } else if(!index.done && currentFilterValue === 'open') {
+        //         currentTodos.push(index);
+        //     } else if(currentFilterValue === 'all') {
+        //         currentTodos.push(index);
+        //     }
+        // });
+        // filterTodos(currentTodos);
+
         setTimeout(() => {
-
-            // currentState.map( index => {
-            //     if(index.done && currentFilterValue === 'done'){
-            //         currentTodos.push(index);
-            //     } else if(!index.done && currentFilterValue === 'open') {
-            //         currentTodos.push(index);
-            //     } else if(currentFilterValue === 'all') {
-            //         currentTodos.push(index);
-            //     }
-            // });
-            // filterTodos(currentTodos);
-
-            var testimonials = document.querySelectorAll('.todo__item');
-            Array.prototype.forEach.call(testimonials, function(elements, index) {
-                elements.style.display='none';
-            });
+            filterTodoList('.todo__item', 'none');
 
             if(currentFilterValue === 'done'){
-                var testimonials = document.querySelectorAll('.todo__item--done');
-                Array.prototype.forEach.call(testimonials, function(elements, index) {
-                    elements.style.display='block';
-                });
+                filterTodoList('.todo__item--' + currentFilterValue, 'block');
             } else if(currentFilterValue === 'open') {
-                var testimonials = document.querySelectorAll('.todo__item--open');
-                Array.prototype.forEach.call(testimonials, function(elements, index) {
-                    elements.style.display='block';
-                });
+                filterTodoList('.todo__item--' + currentFilterValue, 'block');
             } else if(currentFilterValue === 'all') {
-                var testimonials = document.querySelectorAll('.todo__item');
-                Array.prototype.forEach.call(testimonials, function(elements, index) {
-                    elements.style.display='block';
-                });
+                filterTodoList('.todo__item', 'block');
             }
-
-
 
         }, 100);
 
@@ -82,4 +67,10 @@ function setInputFocus(id) {
     setTimeout(function () {
         document.getElementById(id).focus();
     }, 100);
+}
+
+function filterTodoList(element, action){
+    Array.prototype.forEach.call(document.querySelectorAll(element), (el, index) => {
+        el.style.display = action;
+    });
 }
