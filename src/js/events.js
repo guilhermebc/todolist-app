@@ -70,7 +70,7 @@ function setInputFocus(id) {
 }
 
 function filterTodoList(element, action){
-    Array.prototype.forEach.call(document.querySelectorAll(element), (el, index) => {
+    Array.prototype.forEach.call(document.querySelectorAll(element), (el) => {
         el.style.display = action;
     });
 }

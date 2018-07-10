@@ -1,6 +1,12 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
 html, body, .todo {
     margin: 0;
     padding: 0;
+}
+
+#app {
+    margin: 10px auto;
 }
 
 .todo {
@@ -15,8 +21,14 @@ html, body, .todo {
     padding: 0 5px;
 }
 
+.todo__item {
+    border-bottom: 1px solid gray;
+    padding-bottom: 15px;
+}
+
 .todo__item--done {
     text-decoration: line-through;
+    color: green;
 }
 
 #addTodo {

@@ -22,37 +22,77 @@ function renderApp(input, todoList, inputFilter) {
 }
 
 function renderAddTodoAtTop(input, todoList, inputFilter) {
-    return `<div id="app">
-        ${input}
-        ${todoList}  
-    </div>`;
+    return `<div id="app" class="container">
+                <h2 class="text-center">TodoList App</h2>
+                <div class="row text-left">
+                    <div class="col-xs-12 col-md-12 px-1">
+                        ${input}
+                    </div>
+                    <div class="col-xs-12 col-md-12 px-1">
+                        ${todoList}
+                    </div>
+                </div>  
+            </div>`;
 }
 
 function renderAddTodoAtBottom(input, todoList, inputFilter) {
-    return `<div id="app">
-        ${todoList}
-        ${input}
-    </div>`;
+    return `<div id="app" class="container">
+                <h2 class="text-center">TodoList App</h2>
+                <div class="row text-left">
+                    <div class="col-xs-12 col-md-12 px-1">
+                        ${todoList}
+                    </div>
+                    <div class="col-xs-12 col-md-12 px-1">
+                        ${input}
+                    </div>
+                </div>
+            </div>`;
 }
 
 function renderAddTodoFilterAtBottom(input, todoList, inputFilter) {
-    return `<div id="app">
-        ${todoList}
-        ${inputFilter}
-        ${input}
-    </div>`;
+    return `<div id="app" class="container">
+                <h2 class="text-center">TodoList App</h2>
+                <div class="row text-left">
+                    <div class="col-xs-12 col-md-12 px-1">
+                        ${todoList}
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                        ${inputFilter}    
+                    </div>
+                    <div class="col-xs-12 col-md-12 px-1">
+                        ${input}
+                    </div>
+                </div>
+            </div>`;
 }
 
 function renderAddTodoFilterAtTop(input, todoList, inputFilter) {
-    return `<div id="app">
-        ${inputFilter}
-        ${todoList}
-        ${input}
-    </div>`;
+    return `<div id="app" class="container">
+                <h2 class="text-center">TodoList App</h2>
+                <div class="row text-left">
+                    <div class="col-xs-12 col-md-12">
+                        ${inputFilter}
+                    </div>
+                    <div class="col-xs-12 col-md-12 px-1">
+                        ${todoList}    
+                    </div>
+                    <div class="col-xs-12 col-md-12 px-1">
+                        ${input}
+                    </div>
+                </div>
+            </div>`;
 }
 
 function renderInput() {
-    return `<div class="todo__input"><input type="text" id="todoInput" autofocus><button id="addTodo">Add</button></div>`;
+    return `
+        <div class="col-xs-12 col-md-5 input-group mb-3 pl-0 todo__input">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Todo</span>
+          </div>
+          <input type="text" id="todoInput" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" autofocus>
+          <button id="addTodo" class="btn btn-primary">Add</button>
+        </div>
+    `;
 }
 
 function renderTodos(todoItems) {
@@ -71,10 +111,31 @@ function renderTodoItem(todo) {
 
 function renderInputRadio() {
     return `
-        <div class="todo__input">
-            <input type="radio" id="todoInputRadio-1" class="todo__radio" name="todoInputFilter" value="all" checked><label for="todoInputRadio-1">Mostrar todos</label>
-            <input type="radio" id="todoInputRadio-2" class="todo__radio" name="todoInputFilter" value="open"><label for="todoInputRadio-2">Somente abertos</label>
-            <input type="radio" id="todoInputRadio-3" class="todo__radio" name="todoInputFilter" value="done"><label for="todoInputRadio-3">Somente fechados</label>
+        <div class="row my-2">
+            <div class="input-group mb-3 col-xs-12 col-md-4">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                <input type="radio" id="todoInputRadio-1" name="todoInputFilter" aria-label="Radio button for following text input" value="all" checked>
+                </div>
+              </div>
+              <label for="todoInputRadio-1" class="form-control">Mostrar todos</label>
+            </div>
+            <div class="input-group mb-3 col-xs-12 col-md-4">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                <input type="radio" id="todoInputRadio-2" name="todoInputFilter" aria-label="Radio button for following text input" value="open">
+                </div>
+              </div>
+              <label for="todoInputRadio-2" class="form-control">Somente abertos</label>
+            </div>
+            <div class="input-group mb-3 col-xs-12 col-md-4">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                <input type="radio" id="todoInputRadio-3" name="todoInputFilter" aria-label="Radio button for following text input" value="done">
+                </div>
+              </div>
+              <label for="todoInputRadio-3" class="form-control">Somente fechados</label>
+            </div>
         </div>
     `;
 }
