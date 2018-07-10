@@ -7,6 +7,8 @@ export function registerEventHandlers() {
         const todoInput = document.getElementById('todoInput');
         var inputValue = todoInput.value.trim();
 
+        setInputFocus('todoInput');
+
         if(inputValue){
             todos.dispatch(addTodo(inputValue));
             event.stopPropagation();
@@ -23,9 +25,17 @@ export function registerEventHandlers() {
         var inputValue = todoInput.value.trim();
         var key = event.which || event.keyCode;
 
+        setInputFocus('todoInput');
+
         if(key === 13 && inputValue){
             todos.dispatch(addTodo(inputValue));
             event.stopPropagation();
         }
     });
+}
+
+function setInputFocus(id) {
+    setTimeout(function () {
+        document.getElementById(id).focus();
+    }, 100);
 }
