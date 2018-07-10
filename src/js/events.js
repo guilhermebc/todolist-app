@@ -38,6 +38,17 @@ export function registerEventHandlers() {
         let currentTodos = [];
         setTimeout(() => {
 
+            // currentState.map( index => {
+            //     if(index.done && currentFilterValue === 'done'){
+            //         currentTodos.push(index);
+            //     } else if(!index.done && currentFilterValue === 'open') {
+            //         currentTodos.push(index);
+            //     } else if(currentFilterValue === 'all') {
+            //         currentTodos.push(index);
+            //     }
+            // });
+            // filterTodos(currentTodos);
+
             var testimonials = document.querySelectorAll('.todo__item');
             Array.prototype.forEach.call(testimonials, function(elements, index) {
                 elements.style.display='none';
