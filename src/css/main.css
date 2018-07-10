@@ -11,6 +11,10 @@ html, body, .todo {
     margin: 10px;
 }
 
+.todo__radio {
+    padding: 0 5px;
+}
+
 .todo__item--done {
     text-decoration: line-through;
 }

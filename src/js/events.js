@@ -5,7 +5,7 @@ import {addTodo, toggleTodoState} from './actions';
 export function registerEventHandlers() {
     listen('click', '#addTodo', event => {
         const todoInput = document.getElementById('todoInput');
-        var inputValue = todoInput.value.trim();
+        let inputValue = todoInput.value.trim();
 
         setInputFocus('todoInput');
 
@@ -22,8 +22,8 @@ export function registerEventHandlers() {
 
     listen('keypress', '#todoInput', event => {
         const todoInput = document.getElementById('todoInput');
-        var inputValue = todoInput.value.trim();
-        var key = event.which || event.keyCode;
+        let inputValue = todoInput.value.trim();
+        let key = event.which || event.keyCode;
 
         setInputFocus('todoInput');
 
@@ -31,6 +31,39 @@ export function registerEventHandlers() {
             todos.dispatch(addTodo(inputValue));
             event.stopPropagation();
         }
+    });
+
+    listen('click', 'input[name="todoInputFilter"]', event => {
+        let currentFilterValue = event.target.value;
+        let currentTodos = [];
+        setTimeout(() => {
+
+            var testimonials = document.querySelectorAll('.todo__item');
+            Array.prototype.forEach.call(testimonials, function(elements, index) {
+                elements.style.display='none';
+            });
+
+            if(currentFilterValue === 'done'){
+                var testimonials = document.querySelectorAll('.todo__item--done');
+                Array.prototype.forEach.call(testimonials, function(elements, index) {
+                    elements.style.display='block';
+                });
+            } else if(currentFilterValue === 'open') {
+                var testimonials = document.querySelectorAll('.todo__item--open');
+                Array.prototype.forEach.call(testimonials, function(elements, index) {
+                    elements.style.display='block';
+                });
+            } else if(currentFilterValue === 'all') {
+                var testimonials = document.querySelectorAll('.todo__item');
+                Array.prototype.forEach.call(testimonials, function(elements, index) {
+                    elements.style.display='block';
+                });
+            }
+
+
+
+        }, 100);
+
     });
 }
 
