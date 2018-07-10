@@ -10,10 +10,12 @@ export function render(el, state) {
 }
 
 function renderApp(input, todoList, inputFilter) {
-    if(isEnabled('renderBottom')) {
-        return renderAddTodoAtBottom(input, todoList, inputFilter);
+    if(isEnabled('filter') && isEnabled('renderBottom')) {
+        return isEnabled('renderBottom') && isEnabled('filter') && isEnabled('filterTop') ? renderAddTodoFilterAtTop(input, todoList, inputFilter) : renderAddTodoFilterAtBottom(input, todoList, inputFilter);
     } else if(isEnabled('filter')){
-        return renderAddTodoFilter(input, todoList, inputFilter);
+        return renderAddTodoFilterAtBottom(input, todoList, inputFilter);
+    } else if(isEnabled('renderBottom')){
+        return renderAddTodoAtBottom(input, todoList, inputFilter);
     } else {
         return renderAddTodoAtTop(input, todoList, inputFilter);
     }
@@ -33,10 +35,18 @@ function renderAddTodoAtBottom(input, todoList, inputFilter) {
     </div>`;
 }
 
-function renderAddTodoFilter(input, todoList, inputFilter) {
+function renderAddTodoFilterAtBottom(input, todoList, inputFilter) {
     return `<div id="app">
         ${todoList}
         ${inputFilter}
+        ${input}
+    </div>`;
+}
+
+function renderAddTodoFilterAtTop(input, todoList, inputFilter) {
+    return `<div id="app">
+        ${inputFilter}
+        ${todoList}
         ${input}
     </div>`;
 }
