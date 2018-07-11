@@ -1,5 +1,7 @@
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const extractMiniCSS = new ExtractTextPlugin('assets/styles/[name].min.css');
 
 module.exports = {
     entry: ['babel-polyfill', path.normalize(__dirname + '/src/js/main')],
@@ -20,13 +22,17 @@ module.exports = {
                 }
             },
             {
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
                 test: /\.css$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
                 include: [path.resolve(__dirname, 'src', 'css')]
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin("styles.css")
+        new ExtractTextPlugin("styles.css"),
+        extractMiniCSS,
+        new UglifyJsPlugin({
+            sourceMap: true
+        })
     ]
 };
