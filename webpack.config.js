@@ -1,7 +1,7 @@
 var path = require('path');
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const extractMiniCSS = new ExtractTextPlugin('assets/styles/[name].min.css');
 
 module.exports = {
     entry: ['babel-polyfill', path.normalize(__dirname + '/src/js/main')],
@@ -30,7 +30,12 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin("styles.css"),
-        extractMiniCSS,
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp: /\.optimize\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorOptions: { safe: true, discardComments: { removeAll: true } },
+            canPrint: true
+        }),
         new UglifyJsPlugin({
             sourceMap: true
         })
