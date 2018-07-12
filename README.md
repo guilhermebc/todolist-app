@@ -28,10 +28,16 @@ Para criar o build da aplicação, use este comando:
 npm run build
 ```
 
-e para continuar recriando o build enquanto trabalha, use:
+Para continuar recriando o build enquanto trabalha, use:
 
 ```sh
 npm start
+```
+
+Para utilizar o webpack-dev-server enquanto trabalha, por padrão irá abrir uma janela no seu browser principal com endereco localhost porta 8888, abra outra aba e use:
+
+```sh
+npm run server
 ```
 
 Assim que você tiver o bundle construído, você pode abrir o `index.html`  no seu browser e 
