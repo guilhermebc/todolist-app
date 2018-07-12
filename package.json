@@ -26,6 +26,8 @@
     "uglifyjs-webpack-plugin": "^1.2.7"
   },
   "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "redux": "^4.0.0"
   }
 }
