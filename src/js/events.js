@@ -35,17 +35,6 @@ export function registerEventHandlers() {
 
     listen('click', 'input[name="todoInputFilter"]', event => {
         let currentFilterValue = event.target.value;
-        // let currentTodos = [];
-        // currentState.map( index => {
-        //     if(index.done && currentFilterValue === 'done'){
-        //         currentTodos.push(index);
-        //     } else if(!index.done && currentFilterValue === 'open') {
-        //         currentTodos.push(index);
-        //     } else if(currentFilterValue === 'all') {
-        //         currentTodos.push(index);
-        //     }
-        // });
-        // filterTodos(currentTodos);
 
         setTimeout(() => {
             filterTodoList('.todo__item', 'none');

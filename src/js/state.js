@@ -1,6 +1,5 @@
 import {createStore} from './lib/state';
-import {addTodoItem, editTodoItem, listTodos} from './lib/feature';
-
+import {addTodoItem, editTodoItem, listTodos} from './actions';
 // import {createStore} from 'redux';
 
 

@@ -3,11 +3,11 @@
 html, body, .todo {
     margin: 0;
     padding: 0;
-    background-color: #000;
+    color: black;
 }
 
 #app {
-    margin: 10px auto;
+    margin: 15px auto;
 }
 
 .todo {

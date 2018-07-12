@@ -33,8 +33,8 @@ module.exports = {
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.optimize\.css$/g,
             cssProcessor: require('cssnano'),
-            cssProcessorOptions: { safe: true, discardComments: { removeAll: true } },
-            canPrint: true
+            cssProcessorOptions: { safe: true, discardComments: { removeAll: true }, minimize:true },
+            canPrint: true,
         }),
         new UglifyJsPlugin({
             sourceMap: true
