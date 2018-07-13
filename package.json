@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --progress --colors --watch --optimize-minimize",
     "build": "webpack --progress --colors --optimize-minimize",
-    "server": "webpack-dev-server --port 8888 --hot"
+    "server": "webpack-dev-server --port 8888 --open"
   },
   "author": "",
   "license": "ISC",
