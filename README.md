@@ -1,4 +1,4 @@
-# Softexpert Case Study
+# Case Study
 
 ## Extenda uma aplicação de TodoList simples
 
