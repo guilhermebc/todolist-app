@@ -39,8 +39,9 @@ Para utilizar o webpack-dev-server enquanto trabalha, por padrão irá abrir uma
 ```sh
 npm run server
 ```
+A porte você pode definir no `package.json` no comando `npm run server`
 
-Assim que você tiver o bundle construído, você pode abrir o `index.html`  no seu browser e 
+Assim que você tiver o bundle construído, você pode abrir o `index.html` no seu browser ou se estiver utilizando o ```npm run server```  e 
 verificar se a aplicação está funcionando corretamente.
 
 ## Como habilitar um teste?
@@ -55,4 +56,26 @@ Example URL:
 ```
 file:///C:/Users/user/Desktop/TodoList/index.html#renderBottom
 ```
+ou
+```
+http://localhost:8888/#renderBottom
+```
 Note que agora o campo input está renderizado abaixo da lista.
+
+Utilizando o webpack-dev-server
+```
+http://localhost:8888/#renderBottom
+
+```
+## URLS de testes: 
+
+```
+http://localhost:8888/#renderBottom
+```
+```
+http://localhost:8888/#filter
+```
+```
+http://localhost:8888/#renderBottom#filter#filterTop
+```
+OBS: #filterTop só funciona com #filter e #renderBottom juntos.

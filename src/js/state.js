@@ -2,7 +2,6 @@ import {createStore} from './lib/state';
 import {addTodoItem, editTodoItem, listTodos} from './actions';
 // import {createStore} from 'redux';
 
-
 let initialState = {
     todos: listTodos()
 };
